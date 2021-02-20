@@ -7,14 +7,6 @@ import dash_bootstrap_components as dbc
 import dash_table
 
 
-external_stylesheets = [
-    {
-        "rel": "stylesheet",
-    },
-]
-app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
-server = app.server
-
 
 df = pd.read_csv('owid-covid-data.csv')
 
@@ -92,7 +84,13 @@ df3 = df2
 
 df4 = df3[(df3['date'] >= '2021-02-09') & (df3['date'] <= '2021-02-16')]
 
-
+external_stylesheets = [
+    {
+        "rel": "stylesheet",
+    },
+]
+app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+server = app.server
 app.title = 'Covid-19 Dashboard'
 
 app.layout = html.Div(
