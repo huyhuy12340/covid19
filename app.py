@@ -11,7 +11,6 @@ external_stylesheets = [
     {
         "rel": "stylesheet",
     },
-    dbc.themes.BOOTSTRAP
 ]
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 server = app.server
@@ -93,17 +92,6 @@ df3 = df2
 
 df4 = df3[(df3['date'] >= '2021-02-09') & (df3['date'] <= '2021-02-16')]
 
-# def reg_chart(df1, df2):
-#     labels = df1['continent'].head()
-#     colors = ['#277A66','#05F4B7','#50FBD0','#3FE0A6','#1CC794' ]
-#     fig = make_subplots(1, 2, specs=[[{'type':'domain'}, {'type':'domain'}]],
-#                     subplot_titles=['', ''])
-#     fig.add_trace(go.Pie(labels=labels, values=df1['total_cases'].head(), scalegroup='one',
-#                      name="Total case",hole=0.7,textinfo='text'), 1, 1)
-#     fig.add_trace(go.Pie(labels=labels, values=df2['total_deaths'], scalegroup='two',
-#                      name="Total death", hole=0.7, textinfo='text', marker=dict(colors=colors)), 1, 2)
-#     fig.show()
-
 
 app.title = 'Covid-19 Dashboard'
 
@@ -149,21 +137,6 @@ app.layout = html.Div(
         ),
             ]
         ),
-        # html.Div(
-        #     children=[
-        #                 dcc.Dropdown(
-        #                     id="location-filter",
-        #                     options=[
-        #                         {"label": location, "value": location}
-        #                         for location in np.sort(region.location.unique())
-        #                     ],
-        #                     value="United States",
-        #                     clearable=False,
-        #                     searchable=False,
-        #                     className="dropdown",
-        #                 ),
-        #     ]
-        # ),
     
      html.Div(
             children=[
